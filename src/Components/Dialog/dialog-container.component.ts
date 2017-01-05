@@ -9,7 +9,7 @@ export class DialogContainerComponent {
     constructor(private viewContainer: ViewContainerRef,
         private componentFactoryResolver: ComponentFactoryResolver) { }
 
-    public createDialog(dialogComponent: { new (): DialogComponent }): ComponentRef<DialogComponent> {
+    public createDialog(dialogComponent: { new (): DialogComponent }, _bodyComponent: Component): ComponentRef<DialogComponent> {
         this.viewContainer.clear();
 
         let dialogComponentFactory =
@@ -19,6 +19,8 @@ export class DialogContainerComponent {
         dialogComponentRef.instance.close.subscribe(() => {
             dialogComponentRef.destroy();
         });
+
+        dialogComponentRef.instance.open(_bodyComponent);
 
         return dialogComponentRef;
     }

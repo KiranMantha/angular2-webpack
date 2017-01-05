@@ -1,4 +1,4 @@
-import { Component, EventEmitter } from '@angular/core';
+import { Component, EventEmitter, ViewChild, ViewContainerRef, ComponentFactoryResolver } from '@angular/core';
 
 @Component({
     selector: 'dialog',
@@ -6,8 +6,19 @@ import { Component, EventEmitter } from '@angular/core';
 })
 export class DialogComponent {
     public close = new EventEmitter();
+    @ViewChild('dialogBody', {read: ViewContainerRef}) dialogBody: ViewContainerRef;
+
+    constructor(private componentFactoryResolver: ComponentFactoryResolver){}
 
     public onClickedExit():void {
         this.close.emit('event');
+    }
+
+    public open(_bodyComponent: Component): void {
+
+        let dialogBodyComponentFactory =
+            this.componentFactoryResolver.resolveComponentFactory(_bodyComponent);
+
+        this.dialogBody.createComponent(dialogBodyComponentFactory, 0, this.dialogBody);
     }
 }

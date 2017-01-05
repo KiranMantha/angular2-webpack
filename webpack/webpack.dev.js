@@ -22,6 +22,7 @@ module.exports = {
     module: {
         loaders: [
             { loader: 'raw', test: /\.(css|html)$/ },
+            { loader: ['style-loader', 'css-loader', 'sass-loader'], test: /\.scss$/ },
             { exclude: /node_modules/, loader: 'ts', test: /\.ts$/ }
         ]
     },

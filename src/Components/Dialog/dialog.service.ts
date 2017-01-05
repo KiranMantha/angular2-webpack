@@ -1,10 +1,10 @@
-import { Injectable } from '@angular/core';
+import { Component, Injectable } from '@angular/core';
 import { DialogContainerComponent } from './dialog-container.component';
 import { DialogComponent } from './dialog.component';
 
 @Injectable()
 export class DialogService {
-    public createDialog(_dialogContainerComponent: DialogContainerComponent):void {
-        _dialogContainerComponent.createDialog(DialogComponent);
+    public createDialog(_dialogContainerComponent: DialogContainerComponent, _bodyComponent: Component):void {
+        _dialogContainerComponent.createDialog(DialogComponent, _bodyComponent);
     }
 }
