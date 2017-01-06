@@ -8,7 +8,7 @@ export class DialogService {
 
     constructor(@Inject(GlobalService) private _gs: GlobalService){}
 
-    public createDialog(_bodyComponent?:Type<Component>):void {
+    public create(_bodyComponent?:Type<Component>):void {
         this._gs.dialogContainer.createDialog(DialogComponent, _bodyComponent);
     }
 }
