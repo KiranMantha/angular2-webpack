@@ -1,10 +1,14 @@
-import { Component, Injectable } from '@angular/core';
+import { Component, Inject, Injectable, Type } from '@angular/core';
 import { DialogContainerComponent } from './dialog-container.component';
 import { DialogComponent } from './dialog.component';
+import { GlobalService } from '../App/app.global.service';
 
 @Injectable()
 export class DialogService {
-    public createDialog(_dialogContainerComponent: DialogContainerComponent, _bodyComponent: Component):void {
-        _dialogContainerComponent.createDialog(DialogComponent, _bodyComponent);
+
+    constructor(@Inject(GlobalService) private _gs: GlobalService){}
+
+    public createDialog(_bodyComponent?:Type<Component>):void {
+        this._gs.dialogContainer.createDialog(DialogComponent, _bodyComponent);
     }
 }

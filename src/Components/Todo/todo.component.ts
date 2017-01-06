@@ -1,7 +1,6 @@
 import { Component, Inject, forwardRef, Host } from '@angular/core';
 import { TodoService } from './todo.service';
 import { TodoModal } from '../../Modals/todo.modal';
-import { GlobalService } from '../App/app.global.service';
 import { DialogService } from '../Dialog/dialog.service';
 
 @Component({
@@ -13,8 +12,7 @@ export class TodoComponent {
     public Title: string = 'Hello World';
     public Todo: TodoModal = new TodoModal();
     constructor( @Inject(TodoService) public _todoService: TodoService,
-        @Inject(DialogService) public _dialogService: DialogService,
-        @Inject(GlobalService) public _globalService: GlobalService) {
+        @Inject(DialogService) public _dialogService: DialogService) {
     }
 
     public SaveTodo(): void {
@@ -27,6 +25,6 @@ export class TodoComponent {
     }
 
     public OpenDialog(): void {
-        this._dialogService.createDialog(this._globalService.dialogContainer, TodoComponent);
+        this._dialogService.createDialog();
     }
 }
