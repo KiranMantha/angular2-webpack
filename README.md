@@ -95,7 +95,7 @@ The second flag, `--global`, tells Typings that the definitions being installed 
 
 We'll run a second install command for the `es6-promise` shim, as it is not a `window.<var>` library. Notice that there is no prefix required.
 
-    ./node_modules/.bin/typings install es6-promise --save
+    ./node_modules/.bin/typings install es6-shim --save
 
 Your type definitions are now installed.
 
