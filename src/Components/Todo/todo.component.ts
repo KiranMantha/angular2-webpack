@@ -25,6 +25,6 @@ export class TodoComponent {
     }
 
     public OpenDialog(): void {
-        this._dialogService.create();
+        this._dialogService.create(TodoComponent);
     }
 }

@@ -16,6 +16,7 @@ import { TodoService } from './todo.service'
     ],
     providers:[TodoService],
     declarations: [TodoComponent],
-    exports: [TodoComponent]
+    exports: [TodoComponent],
+    entryComponents:[TodoComponent]
 })
 export class TodoModule { } 

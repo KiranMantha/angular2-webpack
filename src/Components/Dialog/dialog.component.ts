@@ -7,7 +7,7 @@ import { Component, Type, EventEmitter, ViewChild, ViewContainerRef, ComponentFa
 export class DialogComponent {
     public close = new EventEmitter();
     @ViewChild('dialogBody', { read: ViewContainerRef }) dialogBody: ViewContainerRef;
-    private componentFactoryResolver: ComponentFactoryResolver;
+    constructor(private componentFactoryResolver: ComponentFactoryResolver) { };
 
     public onClickedExit(): void {
         this.close.emit('event');
