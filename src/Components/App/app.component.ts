@@ -9,7 +9,6 @@ import { GlobalService } from './app.global.service';
 
 export class AppComponent implements AfterViewInit {
     @ViewChild(DialogContainerComponent) _dialogContainer: DialogContainerComponent;
-    public dialogContainer: any;
     constructor(private _globalService: GlobalService) {
     }
 
