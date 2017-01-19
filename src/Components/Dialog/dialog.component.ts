@@ -1,7 +1,7 @@
 import { Component, Type, EventEmitter, ViewChild, ViewContainerRef, ComponentFactoryResolver } from '@angular/core';
 
 @Component({
-    selector: 'dialog',
+    selector: 'dialog-holder',
     template: require('./dialog.component.tpl.html')
 })
 export class DialogComponent {

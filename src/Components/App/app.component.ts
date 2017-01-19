@@ -3,7 +3,7 @@ import { DialogContainerComponent } from '../Dialog/dialog-container.component'
 import { GlobalService } from './app.global.service';
 
 @Component({
-    selector: 'my-app',
+    selector: '[my-app]',
     template: require('./app.component.tpl.html')
 })
 

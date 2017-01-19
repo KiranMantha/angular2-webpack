@@ -4,7 +4,7 @@ import { TodoModal } from '../../Modals/todo.modal';
 import { DialogService } from '../Dialog/dialog.service';
 
 @Component({
-    selector: 'todo',
+    selector: '[todo]',
     template: require('./todo.component.html'),
     providers: [TodoService]
 })

@@ -2,8 +2,8 @@ import { Component, Type, ViewContainerRef, ComponentRef, ComponentFactoryResolv
 import { DialogComponent } from './dialog.component';
 
 @Component({
-    selector: 'dialog-container',
-    template: '<div></div>'
+    selector: '[dialog-container]',
+    template: ''
 })
 export class DialogContainerComponent {
     constructor(private viewContainer: ViewContainerRef,

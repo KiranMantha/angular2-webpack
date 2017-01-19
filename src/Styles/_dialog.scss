@@ -1,0 +1,21 @@
+.dialog {
+    position: absolute;
+    left: 40%;
+    z-index: 1000;
+    width: 300px;
+    height: 300px;
+    background: #fff;
+    .dialog-body {
+        position: relative;
+    }
+}
+
+.dialog-overlay {
+    background: #aaaaaa;
+    opacity: .3;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}

@@ -1,10 +1,11 @@
 <div class="dialog">
-    <div class='dialog-body' #dialogBody>
-
-    </div>
     <header>
         <div class="title">Dialog box</div>
         <div class="exit-button" (click)="onClickedExit()">x</div>
     </header>
-    <p>Hello, I'm a dialog box!</p>
+    <div class='dialog-body'>
+        <i #dialogBody></i>
+
+    </div>
 </div>
+<div class="dialog-overlay"></div>
