@@ -13,23 +13,31 @@ module.exports = {
     devServer: {
         contentBase: path.resolve(rootDir, 'dist'),
         port: 9100,
-        hot: true 
+        hot: true
     },
     devtool: 'source-map',
     entry: {
-        app: [ path.resolve(rootDir, 'src', 'bootstrap') ],
-        vendor: [ path.resolve(rootDir, 'src', 'vendor') ],
-        style: [ path.resolve(rootDir, 'src/Styles', 'app') ]
+        app: [path.resolve(rootDir, 'src', 'bootstrap')],
+        vendor: [path.resolve(rootDir, 'src', 'vendor')],
+        style: [path.resolve(rootDir, 'src/Styles', 'app')]
     },
     module: {
-        loaders: [
-            { loader: 'raw', test: /\.(css|html)$/ },
-            { test: /\.scss$/, loader: ExtractTextPlugin.extract(
+        loaders: [{
+                loader: 'raw',
+                test: /\.(css|html)$/
+            },
+            {
+                test: /\.scss$/,
+                loader: ExtractTextPlugin.extract(
                     'style', // backup loader when not building .css file
                     'css!sass' // loaders to preprocess CSS
-                ) 
+                )
             },
-            { exclude: /node_modules/, loader: 'ts', test: /\.ts$/ }
+            {
+                exclude: /node_modules/,
+                loader: 'ts',
+                test: /\.ts$/
+            }
         ]
     },
     output: {
@@ -50,6 +58,6 @@ module.exports = {
         new ExtractTextPlugin('[name].css')
     ],
     resolve: {
-        extensions: [ '', '.js', '.ts', '.scss' ]
+        extensions: ['', '.js', '.ts', '.scss']
     }
 };
