@@ -5,8 +5,10 @@ const path = require('path');
 const webpack = require('webpack');
 const ChunkWebpack = webpack.optimize.CommonsChunkPlugin;
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
-const rootDir = path.resolve(__dirname, '..');
+
+const rootDir = path.resolve(__dirname);
 
 module.exports = {
     debug: true,
@@ -41,12 +43,19 @@ module.exports = {
         ]
     },
     output: {
-        filename: '[name].bundle.js',
+        filename: 'js/[name].bundle.js',
         path: path.resolve(rootDir, 'dist')
     },
     plugins: [
+        new CleanWebpackPlugin(
+            [
+                "./dist/"
+            ], {
+                root: path.resolve(rootDir)
+            }
+        ),
         new ChunkWebpack({
-            filename: 'vendor.bundle.js',
+            filename: 'js/vendor.bundle.js',
             minChunks: Infinity,
             name: 'vendor'
         }),
@@ -55,7 +64,7 @@ module.exports = {
             inject: 'body',
             template: path.resolve(rootDir, 'src', 'index.html')
         }),
-        new ExtractTextPlugin('[name].css')
+        new ExtractTextPlugin('css/[name].css')
     ],
     resolve: {
         extensions: ['', '.js', '.ts', '.scss']

@@ -4,13 +4,14 @@
   "description": "sample angular2 webpack app",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --config ./webpack/webpack.dev.js",
+    "start": "webpack --config webpack.dev.js && webpack-dev-server --config webpack.dev.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Kiran Mantha",
   "license": "ISC",
   "devDependencies": {
     "@types/jquery": "^2.0.34",
+    "clean-webpack-plugin": "^0.1.15",
     "css-loader": "^0.26.1",
     "extract-text-webpack-plugin": "^1.0.1",
     "html-webpack-plugin": "^2.24.1",
