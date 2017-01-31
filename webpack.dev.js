@@ -5,18 +5,15 @@ const path = require('path');
 const webpack = require('webpack');
 const ChunkWebpack = webpack.optimize.CommonsChunkPlugin;
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const WebpackPreBuildPlugin = require('pre-build-webpack');
+const del = require('del');
 
 
 const rootDir = path.resolve(__dirname);
+const buildFolder = path.resolve(__dirname, 'dist');
+
 
 module.exports = {
-    debug: true,
-    devServer: {
-        contentBase: path.resolve(rootDir, 'dist'),
-        port: 9100,
-        hot: true
-    },
     devtool: 'source-map',
     entry: {
         app: [path.resolve(rootDir, 'src', 'bootstrap')],
@@ -44,16 +41,12 @@ module.exports = {
     },
     output: {
         filename: 'js/[name].bundle.js',
-        path: path.resolve(rootDir, 'dist')
+        path: buildFolder
     },
     plugins: [
-        new CleanWebpackPlugin(
-            [
-                "./dist/"
-            ], {
-                root: path.resolve(rootDir)
-            }
-        ),
+        new WebpackPreBuildPlugin(function (stats) {
+            del([buildFolder]);
+        }),
         new ChunkWebpack({
             filename: 'js/vendor.bundle.js',
             minChunks: Infinity,
