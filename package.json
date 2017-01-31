@@ -4,7 +4,7 @@
   "description": "sample angular2 webpack app",
   "main": "index.js",
   "scripts": {
-    "start": "webpack --config webpack.dev.js && webpack-dev-server --config webpack.server.js",
+    "start": "webpack --config webpack.config.js && webpack-dev-server --config webpack.server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Kiran Mantha",

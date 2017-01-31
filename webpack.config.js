@@ -16,9 +16,9 @@ const buildFolder = path.resolve(__dirname, 'dist');
 module.exports = {
     devtool: 'source-map',
     entry: {
-        app: [path.resolve(rootDir, 'src', 'bootstrap')],
-        vendor: [path.resolve(rootDir, 'src', 'vendor')],
-        style: [path.resolve(rootDir, 'src/Styles', 'app')]
+        app: path.resolve(rootDir, 'src', 'bootstrap'),
+        vendor: path.resolve(rootDir, 'src', 'vendor'),
+        style: path.resolve(rootDir, 'src/Styles', 'app')
     },
     module: {
         loaders: [{
